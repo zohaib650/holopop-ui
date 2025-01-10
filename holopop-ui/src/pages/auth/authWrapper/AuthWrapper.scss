@@ -1,0 +1,148 @@
+.main {
+    padding: 0;
+
+    .side-image {
+        background-color: #242a30;
+        height: 100vh;
+        padding: 0px
+    }
+
+    .logo-img {
+        width: 20vw
+    }
+
+    .forgetSection {
+        background-color: #141414;
+        height: 100vh
+    }
+
+    .login-description p {
+        width: 25vw;
+        margin-bottom: 40px;
+        font-weight: 400;
+        font-size: 18px
+    }
+
+    .requied-dec {
+        font-size: 12px;
+        font-weight: 400
+    }
+
+    .input-img {
+        width: 20px
+    }
+
+    .undo-img {
+        margin-bottom: 20px;
+        padding: 0px;
+
+        .img {
+            width: 11%;
+        }
+    }
+
+    .input-field {
+
+        border: 1px solid #ccc;
+        width: 90%;
+        padding: 15px;
+        border-radius: 10px;
+        border-color: #242a30;
+        font-size: 14px;
+        transition: border 0.3s ease;
+        background-color: #242a30;
+    }
+
+    .button-field {
+        margin-top: 50px;
+        width: 90%;
+        background-color: #38c1f0;
+        padding: 12px;
+    }
+
+    .form-control {
+        border: none;
+        background-color: #242a30;
+        font-family: "Roboto", sans-serif;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 600
+    }
+
+    .login-side {
+        background-color: #141414;
+        height: 100vh;
+        width: 50%;
+    }
+
+    .text-start {
+        font-family: "Roboto", serif;
+        font-weight: 100;
+        font-style: normal;
+        width: 65%;
+    }
+
+    .text-start h3 {
+        font-size: 36px;
+    }
+
+    .login-description {
+        margin-bottom: 50px;
+
+
+    }
+
+    .group-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .forget-img {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+    }
+
+    .forget-img img {
+        width: 20px;
+    }
+
+    .form-control::placeholder {
+        color: #7b7e82;
+        opacity: 1;
+
+    }
+
+    #forEmail:focus {
+        color: #fff;
+        background-color: #242a30;
+        border: none;
+        outline: none;
+        border: 1px solid #242a30;
+        box-shadow: 0 1px 6px 0 rgb(27, 32, 36);
+        border-radius: 0.5rem;
+    }
+
+    .butn {
+        background-color: #38c1f0;
+        padding: 16px 25px;
+        border-radius: 15px;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        width: 31vw;
+
+    }
+
+    .butn:hover {
+        background-color: #38c1f0;
+    }
+
+    .valid-feedback {
+        display: block;
+        color: red;
+    }
+}

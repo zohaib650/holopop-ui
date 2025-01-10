@@ -1,0 +1,51 @@
+.full-height {
+    height: 100vh;
+}
+
+.navCol {
+    height: 98%;
+    background-color: #000000;
+}
+
+.logo-Img {
+    width: 30%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo-Img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-Imgs {
+    height: 22px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.nav {
+    background-color: #242A30;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: block;
+    display: flex;
+    align-items: center; // Vertically align items in the navbar
+    justify-content: flex-start;
+
+
+}
+
+.nav:hover {
+    background-color: #38C1F0;
+}
+
+.nav .navbar-brand {
+    color: white !important;
+    padding-left: 10px;
+    font-size: 16px;
+
+}

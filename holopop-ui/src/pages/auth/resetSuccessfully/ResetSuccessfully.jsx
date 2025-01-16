@@ -8,7 +8,7 @@ import group from "../../../assets/icons/Group.svg";
 export default function PasswordResetSuccess() {
   const navigate = useNavigate();
   const handleLoginClick = () => {
-    navigate("/hero-section");
+    navigate("/deshboard");
   };
 
   return (

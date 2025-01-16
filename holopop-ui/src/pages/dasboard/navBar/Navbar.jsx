@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import "../navBar/NavBar.scss";
 import logoImg from "../../../assets/icons/logo-icon.svg";
 import Deshboard from "../../../assets/icons/Vector.svg";
+import logout from "../../../assets/icons/logoutt.svg";
 import User from "../../../assets/icons/carbon_machine-learning-model.svg";
 import QRCode from "../../../assets/icons/qr_code_2.svg";
 import GiftCard from "../../../assets/icons/featured_seasonal_and_gifts.svg";
@@ -15,51 +16,59 @@ const NavBarMain = () => {
     <Row className="full-height w-100 m-0">
       <Col md={12} className="navCol">
         <div className="logo-Img">
-          <NavLink to="/" className="navbar-brand" activeClassName="active-link">
+          <NavLink to="/deshboard" className="navbar-brand">
             <img src={logoImg} alt="Logo" />
           </NavLink>
         </div>
-        <Navbar className="nav">
-          <img src={Deshboard} alt="Dashboard" className="nav-Imgs" />
-          <NavLink to="/hero-section" className="navbar-brand" activeClassName="active-link">
+
+        <NavLink to="/deshboard" className="navbar-brand">
+          <Navbar className="nav">
+            <img src={Deshboard} alt="Dashboard" className="nav-Imgs" />
             Dashboard
-          </NavLink>
-        </Navbar>
+          </Navbar>
+        </NavLink>
 
-        <Navbar className="nav">
-          <img src={User} alt="User" className="nav-Imgs" />
-          <NavLink to="/userpage" className="navbar-brand" activeClassName="active-link">
+        <NavLink to="/user" className="navbar-brand">
+          <Navbar className="nav">
+            <img src={User} alt="User" className="nav-Imgs" />
             User
-          </NavLink>
-        </Navbar>
+          </Navbar>
+        </NavLink>
 
-        <Navbar className="nav">
-          <img src={QRCode} alt="QR Code" className="nav-Imgs" />
-          <NavLink to="/qr-code" className="navbar-brand" activeClassName="active-link">
+        <NavLink to="/qr" className="navbar-brand">
+          <Navbar className="nav">
+            <img src={QRCode} alt="QR Code" className="nav-Imgs" />
             QR Code
-          </NavLink>
-        </Navbar>
+          </Navbar>
+        </NavLink>
 
-        <Navbar className="nav">
-          <img src={GiftCard} alt="Gift Card" className="nav-Imgs" />
-          <NavLink to="/gift-card" className="navbar-brand" activeClassName="active-link">
+        <NavLink to="/gift" className="navbar-brand">
+          <Navbar className="nav">
+            <img src={GiftCard} alt="Gift Card" className="nav-Imgs" />
             Gift Card
-          </NavLink>
-        </Navbar>
+          </Navbar>
+        </NavLink>
 
-        <Navbar className="nav">
-          <img src={BrowseGallary} alt="Browse Gallery" className="nav-Imgs" />
-          <NavLink to="/browse-gallery" className="navbar-brand" activeClassName="active-link">
+        <NavLink to="/gallery" className="navbar-brand">
+          <Navbar className="nav">
+            <img src={BrowseGallary} alt="Browse Gallery" className="nav-Imgs" />
             Browse Gallery
-          </NavLink>
-        </Navbar>
+          </Navbar>
+        </NavLink>
 
-        <Navbar className="nav">
-          <img src={Occasion} alt="Occasion" className="nav-Imgs" />
-          <NavLink to="/" className="navbar-brand" activeClassName="active-link">
+        <NavLink to="/deshboard" className="navbar-brand">
+          <Navbar className="nav">
+            <img src={Occasion} alt="Occasion" className="nav-Imgs" />
             Occasion
-          </NavLink>
-        </Navbar>
+          </Navbar>
+        </NavLink>
+
+        <NavLink to="/" className="navbar-brand-out">
+          <Navbar className="custom-nav">
+            <img src={logout} alt="Occasion" className="nav-Imgs" />
+            LogOut
+          </Navbar>
+        </NavLink>
       </Col>
     </Row>
   );

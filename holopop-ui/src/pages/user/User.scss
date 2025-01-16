@@ -1,0 +1,125 @@
+.download-img {
+    width: 20px;
+}
+
+.form-control.is-invalid {
+    background-image: none;
+}
+
+.check .form-check-input:checked {
+    background-color: #1FBA41;
+    border-color: #1FBA41;
+    box-shadow: none;
+}
+
+.check .form-check-input:checked::before {
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.ag-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ag-header-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ag-row {
+    display: flex;
+    align-items: center;
+}
+
+#dropdown-item-button {
+    background-color: #fff;
+    color: black;
+    border: 1px solid #EFEFEF;
+    padding-right: 24px;
+    padding-left: 24px;
+
+}
+
+.form-group-flex {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-group-width {
+    width: 50%;
+}
+
+
+.table-container {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.search {
+    background-color: #F5F8F9;
+}
+
+#dropdown-pdf-button {
+    background-color: white;
+    color: #1FBA41;
+    border-color: #1FBA41;
+}
+
+#dropdown-create-button {
+    background-color: #38C1F0;
+    border: none;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+.head-left {
+    width: 30%;
+}
+
+.head-right {
+    width: 70%;
+}
+
+.ag-theme-alpine {
+    width: 100%;
+}
+
+.cancel-button {
+    background-color: #D8D9DA;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    width: 49%;
+}
+
+.submit-button {
+    background-color: #38C1F0;
+    color: #ffff;
+    border: none;
+    padding: 10px 20px;
+    width: 49%;
+}
+
+.ag-header-cell {
+    display: flex;
+
+    justify-content: center;
+    background-color: #EFF2F7;
+
+}
+
+.ag-cell {
+    display: flex;
+
+    justify-content: start;
+}
+
+.ag-row {
+    display: flex;
+
+}

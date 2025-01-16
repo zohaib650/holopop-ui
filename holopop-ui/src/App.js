@@ -3,6 +3,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Forget from "./pages/auth/forget/Forget";
 import VerificationCode from "./pages/auth/verificationCode/VerificationCode";
 import CommonSection from "./pages/auth/authWrapper/CommonSection";
@@ -12,12 +14,14 @@ import FormikForm from "./pages/practice/formik/FormikForm";
 import Navbar from "./pages/dasboard/navBar/Navbar";
 import HeaderSection from "./pages/dasboard/header/HeaderSection";
 import HeroSection from "./pages/dasboard/heroSection/HeroSection";
-import Userpage from "./pages/userPage/Userpage";
+import User from "./pages/user/User";
 import QrCode from "./pages/qrCode/QrCode";
 import GiftCard from "./pages/giftCard/GiftCard";
 import BrowseGallery from "./pages/browseGallery/BrowseGallery";
 import InputField from "./pages/auth/login/Login";
 import PrivateLayout from "./layout/PrivateLayout";
+import AdminPortal from "./pages/adminPortal/AdminPortal";
+
 function App() {
   return (
     <div>
@@ -26,12 +30,21 @@ function App() {
           <Route path="/" element={<CommonSection />} />
           <Route path="/forget" element={<Forget />} />
           <Route path="/verification-code" element={<VerificationCode />} />
-          <Route path="/inputField" element={<InputField></InputField>} />
+          <Route path="/inputField" element={<InputField />} />
           <Route path="/new-password" element={<NewPassword />} />
-          <Route path="/navbar" element={<Navbar></Navbar>} />
-          <Route path="/header-section" element={<HeaderSection></HeaderSection>} />
+          <Route path="/navbar" element={<Navbar />} />
+
           <Route
-            path="/hero-section"
+            path="/admin"
+            element={
+              <PrivateLayout>
+                <AdminPortal />
+              </PrivateLayout>
+            }
+          />
+
+          <Route
+            path="/deshboard"
             element={
               <PrivateLayout>
                 <HeroSection />
@@ -39,15 +52,15 @@ function App() {
             }
           />
           <Route
-            path="/userpage"
+            path="/user"
             element={
               <PrivateLayout>
-                <Userpage />
+                <User />
               </PrivateLayout>
             }
           />
           <Route
-            path="/qr-code"
+            path="/qr"
             element={
               <PrivateLayout>
                 <QrCode />
@@ -55,7 +68,7 @@ function App() {
             }
           />
           <Route
-            path="/gift-card"
+            path="/gift"
             element={
               <PrivateLayout>
                 <GiftCard />
@@ -63,17 +76,17 @@ function App() {
             }
           />
           <Route
-            path="/browse-gallery"
+            path="/gallery"
             element={
               <PrivateLayout>
                 <BrowseGallery />
               </PrivateLayout>
             }
           />
-
           <Route path="/123" element={<Practice />} />
           <Route path="/formik-form" element={<FormikForm />} />
         </Routes>
+        <ToastContainer position="top-center" reverseOrder={false} autoClose={2000} />
       </BrowserRouter>
     </div>
   );

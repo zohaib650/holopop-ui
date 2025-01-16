@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap";
+import { Form, Button, InputGroup } from "react-bootstrap";
 import undo from "../../../assets/icons/undo.svg";
 import VerificationCode from "../verificationCode/VerificationCode";
 import { Formik } from "formik";
@@ -41,7 +41,7 @@ const Forget = ({ setIsForgotScreen }) => {
               <Form onSubmit={handleSubmit}>
                 <div className="login-field">
                   <Form.Group className="mb-3">
-                    <Form.Control type="email" onChange={handleChange} placeholder="Email" name="email" className="rounded-4 p-3" value={values.email || ""} id="forEmail" />
+                    <Form.Control type="email" onChange={handleChange} placeholder="Email" name="email" className="rounded-4 p-3 email-input" value={values.email || ""} id="forEmail" />
                     {errors.email ? <Form.Control.Feedback>{errors.email}</Form.Control.Feedback> : null}
                   </Form.Group>
                 </div>

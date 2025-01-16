@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
-import { Container, Row, Col, Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
+import { Row, Col, Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import trash from "../../assets/icons/trash.svg";
 import pencil from "../../assets/icons/pencil-square.svg";
-import download from "../../assets/icons/download-solid.svg";
+import exportDownload from "../../assets/icons/download.svg";
 import downloadbottom from "../../assets/icons/downloadbottom.svg";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "../qrCode/Qr.scss";
-
+import CreateQrCode from "./CreateQrCode";
+import GeneratedCode from "./GenratedCode";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 function QrCode() {
@@ -23,71 +24,61 @@ function QrCode() {
     { ID: 11125152, URL: "www.medium.com", Status: "Exported" },
     { ID: 11125153, URL: "www.quora.com", Status: "Non Exported" },
   ]);
-
   const [colDefs, setColDefs] = useState([
-    { field: "ID" },
-    { field: "URL" },
-    {
-      field: "Status",
-      cellRenderer: ({ data }) => {
-        return (
-          <div>
-            <Button className={data.Status === "Exported" ? "Exported" : "Non-Exported"}>{data.Status}</Button>
-          </div>
-        );
-      },
-    },
+    { field: "ID", flex: 2 },
+    { field: "URL", flex: 2 },
+    { field: "Status", flex: 2 },
     {
       field: "Action",
+      flex: 2,
       cellRenderer: () => {
         return (
           <div>
-            <img src={pencil} style={{ width: "20px", cursor: "pointer", marginRight: "10px" }} />
-            <img src={trash} style={{ width: "20px", cursor: "pointer", marginRight: "10px" }} />
-            <img src={downloadbottom} style={{ width: "20px", cursor: "pointer" }} />
+            <img src={pencil} className="icon" />
+            <img src={trash} className="icon" />
+            <img src={downloadbottom} className="icon" />
           </div>
         );
       },
     },
   ]);
+  const [lgShow, setLgShow] = useState(false);
+  const [isGenerated, setIsGenerated] = useState(false);
+  const [showGeneratedCode, setShowGeneratedCode] = useState(false);
+
+  const handleGenerate = () => {
+    setIsGenerated(true);
+  };
 
   return (
-    <Row className="full-height">
-      <Col md={12}>
-        <Row className="mt-4 mb-4">
-          <Col xs="auto" className="head-left d-flex justify-content-between align-items-center">
-            <p className="m-0 fw-bold">QR Codes</p>
-            <Form.Control type="text" placeholder="Search" className="search w-75" />
-          </Col>
-          <Col xs="auto" className="head-right d-flex justify-content-between align-items-center">
-            <Button type="button" id="dropdown-pdf-button">
-              Export in Bulk <img src={download} className="download-img" />
-            </Button>
-            <div>
-              <DropdownButton id="dropdown-item-button" title="Not Exported">
-                <Dropdown.Item as="button">Action</Dropdown.Item>
-                <Dropdown.Item as="button">Another action</Dropdown.Item>
-                <Dropdown.Item as="button">Something else</Dropdown.Item>
-              </DropdownButton>
-            </div>
-            <div>
-              <DropdownButton id="dropdown-item-button" title="Generate QR">
-                <Dropdown.Item as="button">Action</Dropdown.Item>
-                <Dropdown.Item as="button">Another action</Dropdown.Item>
-                <Dropdown.Item as="button">Something else</Dropdown.Item>
-              </DropdownButton>
-            </div>
-
-            <Button id="dropdown-create-button" type="button">
-              + Generate QR
-            </Button>
-          </Col>
-        </Row>
-        <div style={{ height: 700 }} className="ag-theme-alpine">
-          <AgGridReact rowData={rowData} columnDefs={colDefs} />
-        </div>
-      </Col>
-    </Row>
+    <Col md={12} className="table-container">
+      <Row className="mt-4 mb-4">
+        <Col xs="auto" className="head-left d-flex justify-content-between align-items-center">
+          <p className="m-0 fw-bold">QR Codes</p>
+          <Form.Control type="text" placeholder="Search" className="search w-75" />
+        </Col>
+        <Col xs="auto" className="head-right d-flex justify-content-end gap-4 align-items-center">
+          <Button type="button" id="dropdown-pdf-button">
+            <img src={exportDownload} className="download-img" /> Export in Bulk
+          </Button>
+          <div>
+            <DropdownButton id="dropdown-item-button" title="Exported">
+              <Dropdown.Item as="button">Export</Dropdown.Item>
+              <Dropdown.Item as="button">Not Exported</Dropdown.Item>
+            </DropdownButton>
+          </div>
+          <Button id="dropdown-create-button" type="submit" onClick={() => setLgShow(true)}>
+            + Generate QR
+          </Button>
+        </Col>
+      </Row>
+      <div className="ag-container">
+        <AgGridReact rowHeight={45} headerHeight={60} pagination paginationPageSize={8} rowData={rowData} columnDefs={colDefs} />
+      </div>
+      {console.log({ showGeneratedCode }, "showGeneratedCode")}
+      {lgShow && <CreateQrCode setShowGeneratedCode={setShowGeneratedCode} rowData={rowData} setRowData={setRowData} showModal={lgShow} closeModal={() => setLgShow(false)} />}
+      {showGeneratedCode && <GeneratedCode showModal={showGeneratedCode} closeGeneratedCode={() => setShowGeneratedCode(false)} />}
+    </Col>
   );
 }
 

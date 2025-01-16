@@ -1,4 +1,5 @@
 import React from "react";
+import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { Form, InputGroup, Button } from "react-bootstrap";
@@ -14,7 +15,7 @@ const InputField = ({ setIsForgotScreen }) => {
   };
 
   const handleSubmit = (values) => {
-    navigate("/hero-section");
+    navigate("/deshboard");
   };
 
   const validateSchema = Yup.object({
@@ -27,10 +28,21 @@ const InputField = ({ setIsForgotScreen }) => {
       <Formik initialValues={initialState} validationSchema={validateSchema} onSubmit={handleSubmit}>
         {({ values, handleChange, handleSubmit, errors, touched }) => (
           <Form onSubmit={handleSubmit}>
+            {console.log(errors, "errors")}
             <div className="login-description">
               <Form.Group className="mb-3">
-                <Form.Control type="email" onChange={handleChange} placeholder="Email" name="email" className="rounded-4 p-3" value={values.email || ""} id="forEmail" />
-                {touched.email && errors.email && <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>}
+                <Form.Control
+                  type="email"
+                  onChange={handleChange}
+                  placeholder="Email"
+                  name="email"
+                  className="rounded-4 p-3 email-input"
+                  value={values.email || ""}
+                  id="forEmail"
+                  isInvalid={touched.email && errors.email}
+                />
+
+                {touched.email && errors.email && <Form.Control.Feedback>{errors.email}</Form.Control.Feedback>}
               </Form.Group>
               <Form.Group className="mb-3">
                 <InputGroup>
@@ -39,28 +51,21 @@ const InputField = ({ setIsForgotScreen }) => {
                     onChange={handleChange}
                     placeholder="Password"
                     name="password"
-                    className="rounded-4 p-3"
+                    className="rounded-4 p-3 w-100 password-input"
                     value={values.password || ""}
-                    id="forEmail"
+                    id="forPassword"
                     isInvalid={touched.password && errors.password}
                   />
+
                   <img
                     src={ForgetImg}
                     onClick={() => {
                       setIsForgotScreen(true);
                     }}
-                    style={{
-                      position: "absolute",
-                      right: "36px",
-                      top: "40%",
-                      transform: "translateY(-50%)",
-                      width: "20px",
-                      height: "20px",
-                      cursor: "pointer",
-                    }}
+                    className="forgot-icon"
                   />
                 </InputGroup>
-                {errors.password && errors.password && <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>}
+                {touched.password && errors.password && <Form.Control.Feedback>{errors.password}</Form.Control.Feedback>}
               </Form.Group>
             </div>
             <Button type="submit" className="butn my-3 mt-4">

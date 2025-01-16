@@ -1,0 +1,25 @@
+.forgot-icon{
+    z-index: 100 !important;
+    position: absolute;
+    right: 27px !important;
+    top: 28px !important;
+    transform: translateY(-50%) !important;
+    width: 20px !important;
+    height: 20px !important;
+    cursor: pointer !important;
+}
+.email-input {
+    color: black;
+  }
+  
+  .email-input:not(:placeholder-shown) {
+    color: white;
+  }
+  .password-input {
+    color: black;
+  }
+  
+  .password-input:not(:placeholder-shown) {
+    color: white;
+  }
+    

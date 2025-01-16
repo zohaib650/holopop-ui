@@ -1,13 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const Practice = () => {
-  const [Status, Setstaus] = useState(false);
+  const chartData = {
+    labels: ["Android", "iOS"],
+    datasets: [
+      {
+        data: [70, 30],
+        backgroundColor: ["#38C1F0", "#242A30"],
+        borderColor: ["#38C1F0", "#242A30"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    plugins: {
+      tooltip: {
+        enabled: true,
+      },
+      datalabels: {
+        display: true,
+        align: "center",
+        font: {
+          size: 30,
+          weight: "bold",
+        },
+        color: "#fff",
+        formatter: (value) => `${value}%`,
+        padding: 10,
+        borderRadius: 5,
+      },
+    },
+  };
 
   return (
     <div>
-      {Status ? <h1>Hi</h1> : null}
-      <div>
-        <button onClick={() => Setstaus(!Status)}>{Status ? "hide" : "show"}</button>
+      <div style={{ width: "300px", height: "400px" }}>
+        <Pie data={chartData} options={chartOptions} />
       </div>
     </div>
   );

@@ -7,9 +7,11 @@
     background-color: #000000;
 }
 
+
+
 .logo-Img {
-    width: 30%;
-    height: 200px;
+    width: 40%;
+    height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,24 +19,46 @@
 }
 
 .logo-Img img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
 .nav-Imgs {
-    height: 22px;
+    height: 21px;
     margin-right: 10px;
     margin-left: 10px;
 }
 
-.nav {
+.navbar-brand-out {
+    color: #F46A6A;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.custom-nav {
+    margin-top: 100px;
+    width: 100%;
     background-color: #242A30;
     margin-bottom: 10px;
     border-radius: 10px;
-    display: block;
+    padding: 10px;
     display: flex;
-    align-items: center; // Vertically align items in the navbar
+    align-items: center;
     justify-content: flex-start;
+
+
+}
+
+.nav {
+    width: 100%;
+    background-color: #242A30;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
 
 
 }
@@ -47,5 +71,6 @@
     color: white !important;
     padding-left: 10px;
     font-size: 16px;
+
 
 }
